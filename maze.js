@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded" , () => {
 
     document.querySelector("#start").onmouseover = () => {
 
+        // EXO 1-2-7
         document.onmouseover = (event) => {
             if(status.innerHTML != 'You win!'){
                 if(event.target.id != "maze" && event.target.id != "start" && event.target.id != "end"){
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded" , () => {
             }
         }
 
+        // EXO 3-6
         document.querySelector("#end").onmouseover = () => {
             if (document.querySelector("#boundary1").style.backgroundColor == 'red'){
                 status.innerHTML = "You lose!"
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded" , () => {
 
     }
 
+    // EXO 4
     document.querySelector("#start").onclick = () => {
         boundaries.forEach(div => {
             div.style.backgroundColor = '';
