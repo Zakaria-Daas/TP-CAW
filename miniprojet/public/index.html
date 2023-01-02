@@ -3,6 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"  />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -10,34 +17,74 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+   
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+   
     <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<script>
+  $(document).ready(function(){
+  $(window).scroll(function(){
+      if(this.scrollY > 20){
+          $('.navbar').addClass("sticky")
+      }else{
+          $('.navbar').removeClass("sticky")
+      }
+      if (this.scrollY > 500) {
+          $('.scroll-up-btn').addClass("show")
+      }else{
+          $('.scroll-up-btn').removeClass("show")
+      }
+  })
+  $('.scroll-up-btn').click(function(){
+      $('html').animate({scrollTop: 0})
+  })
+  $('.menu-btn').click(function(){
+      $('.navbar .menu').toggleClass("active")
+      //اومبعد نخدها
+      $('.menu-btn ion-icon').toggleClass("active")
+  })
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+var typed = new Typed(".typing",{
+  strings:["Zakaria Daas ","Saber Goudjil"],
+  typeSpeed: 100,
+  backSpeed:60,
+  loop:true
+})
+var T = new T(".typing2",{
+  strings:["Zakaria Daas","Saber Goudjil"],
+  typeSpeed: 100,
+  backSpeed:60,
+  loop:true
+})
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+
+  $('.carousel').owlCarousel({
+      margin:20,
+      loop:true,
+      autoplayTimeOut:2000,
+      autoplayHoverPause:true,
+      responsive:{
+          0:{
+              items:1,
+              nav:false,
+          },
+          600:{
+              items:2,
+              nav:false,
+          },
+          1000:{
+              items:3,
+              nav:false,
+          }
+      }
+  })
+})
+
+
+</script>
   </body>
 </html>
